@@ -3,10 +3,12 @@ pragma solidity >=0.7.0 <0.9.0;
 
 import {DpTables} from "./DpTables.sol";
 
+import {Flush} from "./flush/Flush.sol";
 import {Flush1} from "./flush/Flush1.sol";
 import {Flush2} from "./flush/Flush2.sol";
 import {Flush3} from "./flush/Flush3.sol";
 
+import {NoFlush} from "./noFlush/NoFlush.sol";
 import {NoFlush1} from "./noFlush/NoFlush1.sol";
 import {NoFlush2} from "./noFlush/NoFlush2.sol";
 import {NoFlush3} from "./noFlush/NoFlush3.sol";
@@ -27,8 +29,8 @@ import {NoFlush17} from "./noFlush/NoFlush17.sol";
 
 contract Evaluator7 {
     address public immutable DP_TABLES;
-    address[3] public FLUSH_ADDRESSES;
-    address[17] public NOFLUSH_ADDRESSES;
+    address public immutable FLUSH_ADDRESS;
+    address public immutable NOFLUSH_ADDRESS;
 
     uint8 STRAIGHT_FLUSH = 0;
     uint8 FOUR_OF_A_KIND = 1;
@@ -74,16 +76,18 @@ contract Evaluator7 {
         0x1, 0x8, 0x40, 0x200
     ];
 
-    constructor(address _dpTables, address[3] memory _flushes, address[17] memory _noflushes) {
+    constructor(address _dpTables, address _flush, address _noflush) {
         DP_TABLES = _dpTables;
 
-        for (uint256 i = 0; i < _flushes.length; i++) {
-            FLUSH_ADDRESSES[i] = _flushes[i];
-        }
-
-        for (uint256 j = 0; j < _noflushes.length; j++) {
-            NOFLUSH_ADDRESSES[j] = _noflushes[j];
-        }
+        // for (uint256 i = 0; i < _flushes.length; i++) {
+        //     FLUSH_ADDRESSES[i] = _flushes[i];
+        // }
+        //
+        // for (uint256 j = 0; j < _noflushes.length; j++) {
+        //     NOFLUSH_ADDRESSES[j] = _noflushes[j];
+        // }
+        FLUSH_ADDRESS   = _flush;
+        NOFLUSH_ADDRESS =    _noflush;
     }
 
     function handRank(uint256 a, uint256 b, uint256 c, uint256 d, uint256 e, uint256 f, uint256 g)
@@ -142,52 +146,54 @@ contract Evaluator7 {
 
             uint256 sb = suit_binary[suits - 1];
 
-            if (sb < 3000) {
-                return Flush1(FLUSH_ADDRESSES[0]).flush(sb);
-            } else if (sb < 6000) {
-                return Flush2(FLUSH_ADDRESSES[1]).flush(sb);
-            } else {
-                return Flush3(FLUSH_ADDRESSES[2]).flush(sb);
-            }
+            // if (sb < 3000) {
+            //     return Flush1(FLUSH_ADDRESSES[0]).flush(sb);
+            // } else if (sb < 6000) {
+            //     return Flush2(FLUSH_ADDRESSES[1]).flush(sb);
+            // } else {
+            //     return Flush3(FLUSH_ADDRESSES[2]).flush(sb);
+            // }
+            return Flush(FLUSH_ADDRESS).flush(sb);
         }
 
         hsh = hash_quinary(quinary, 13, 7);
 
-        if (hsh < 3000) {
-            return NoFlush1(NOFLUSH_ADDRESSES[0]).noflush(hsh);
-        } else if (hsh < 6000) {
-            return NoFlush2(NOFLUSH_ADDRESSES[1]).noflush(hsh - 3000);
-        } else if (hsh < 9000) {
-            return NoFlush3(NOFLUSH_ADDRESSES[2]).noflush(hsh - 6000);
-        } else if (hsh < 12000) {
-            return NoFlush4(NOFLUSH_ADDRESSES[3]).noflush(hsh - 9000);
-        } else if (hsh < 15000) {
-            return NoFlush5(NOFLUSH_ADDRESSES[4]).noflush(hsh - 12000);
-        } else if (hsh < 18000) {
-            return NoFlush6(NOFLUSH_ADDRESSES[5]).noflush(hsh - 15000);
-        } else if (hsh < 21000) {
-            return NoFlush7(NOFLUSH_ADDRESSES[6]).noflush(hsh - 18000);
-        } else if (hsh < 24000) {
-            return NoFlush8(NOFLUSH_ADDRESSES[7]).noflush(hsh - 21000);
-        } else if (hsh < 27000) {
-            return NoFlush9(NOFLUSH_ADDRESSES[8]).noflush(hsh - 24000);
-        } else if (hsh < 30000) {
-            return NoFlush10(NOFLUSH_ADDRESSES[9]).noflush(hsh - 27000);
-        } else if (hsh < 33000) {
-            return NoFlush11(NOFLUSH_ADDRESSES[10]).noflush(hsh - 30000);
-        } else if (hsh < 36000) {
-            return NoFlush12(NOFLUSH_ADDRESSES[11]).noflush(hsh - 33000);
-        } else if (hsh < 39000) {
-            return NoFlush13(NOFLUSH_ADDRESSES[12]).noflush(hsh - 36000);
-        } else if (hsh < 42000) {
-            return NoFlush14(NOFLUSH_ADDRESSES[13]).noflush(hsh - 39000);
-        } else if (hsh < 45000) {
-            return NoFlush15(NOFLUSH_ADDRESSES[14]).noflush(hsh - 42000);
-        } else if (hsh < 48000) {
-            return NoFlush16(NOFLUSH_ADDRESSES[15]).noflush(hsh - 45000);
-        } else {
-            return NoFlush17(NOFLUSH_ADDRESSES[16]).noflush(hsh - 48000);
-        }
+        // if (hsh < 3000) {
+        //     return NoFlush1(NOFLUSH_ADDRESSES[0]).noflush(hsh);
+        // } else if (hsh < 6000) {
+        //     return NoFlush2(NOFLUSH_ADDRESSES[1]).noflush(hsh - 3000);
+        // } else if (hsh < 9000) {
+        //     return NoFlush3(NOFLUSH_ADDRESSES[2]).noflush(hsh - 6000);
+        // } else if (hsh < 12000) {
+        //     return NoFlush4(NOFLUSH_ADDRESSES[3]).noflush(hsh - 9000);
+        // } else if (hsh < 15000) {
+        //     return NoFlush5(NOFLUSH_ADDRESSES[4]).noflush(hsh - 12000);
+        // } else if (hsh < 18000) {
+        //     return NoFlush6(NOFLUSH_ADDRESSES[5]).noflush(hsh - 15000);
+        // } else if (hsh < 21000) {
+        //     return NoFlush7(NOFLUSH_ADDRESSES[6]).noflush(hsh - 18000);
+        // } else if (hsh < 24000) {
+        //     return NoFlush8(NOFLUSH_ADDRESSES[7]).noflush(hsh - 21000);
+        // } else if (hsh < 27000) {
+        //     return NoFlush9(NOFLUSH_ADDRESSES[8]).noflush(hsh - 24000);
+        // } else if (hsh < 30000) {
+        //     return NoFlush10(NOFLUSH_ADDRESSES[9]).noflush(hsh - 27000);
+        // } else if (hsh < 33000) {
+        //     return NoFlush11(NOFLUSH_ADDRESSES[10]).noflush(hsh - 30000);
+        // } else if (hsh < 36000) {
+        //     return NoFlush12(NOFLUSH_ADDRESSES[11]).noflush(hsh - 33000);
+        // } else if (hsh < 39000) {
+        //     return NoFlush13(NOFLUSH_ADDRESSES[12]).noflush(hsh - 36000);
+        // } else if (hsh < 42000) {
+        //     return NoFlush14(NOFLUSH_ADDRESSES[13]).noflush(hsh - 39000);
+        // } else if (hsh < 45000) {
+        //     return NoFlush15(NOFLUSH_ADDRESSES[14]).noflush(hsh - 42000);
+        // } else if (hsh < 48000) {
+        //     return NoFlush16(NOFLUSH_ADDRESSES[15]).noflush(hsh - 45000);
+        // } else {
+        //     return NoFlush17(NOFLUSH_ADDRESSES[16]).noflush(hsh - 48000);
+        // }
+            return NoFlush(NOFLUSH_ADDRESS).noflush(hsh);
     }
 
     function hash_quinary(uint8[13] memory q, uint256 len, uint256 k) public view returns (uint256 sum) {

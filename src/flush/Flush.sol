@@ -1,13 +1,14 @@
 // SPDX-License-Identifier: GPL-3.0
 pragma solidity >=0.7.0 <0.9.0;
 
-contract NoFlush17 {
-    uint[] public noflush;
+contract Flush {
+    uint[] public flush;
 
     function append(bytes calldata arrBytes) public {
-        uint[1205] memory arr = abi.decode(arrBytes, (uint[1205]));
+        uint[] memory arr = abi.decode(arrBytes, (uint[]));
         for (uint i; i < arr.length; i++) {
-            noflush.push(arr[i]);
+            flush.push(arr[i]);
         }
     }
 }
+
