@@ -377,12 +377,18 @@ arr = [
   ]
 
 hexString = []
-for i in range(0, len(arr), 8):
-    subArr = arr[i:i+8]
+step = 16
+for i in range(0, len(arr), step):
+    subArr = arr[i:i+step]
     hexArr = []
     for n in subArr:
         hexArr.append("%0.4X"%n)
-    hexString.append("0x"+"".join(hexArr))
+    hexWords = "".join(hexArr)
+    hexWords +=  '0' * (64-len(hexWords))
+    hexString.append("0x"+hexWords)
 
-print(hexString)
+def slot(i,x): 
+    return "#define constant SLOT_%d = %s"%(i,x)
+
+print("\n".join([slot(i,x) for (i,x) in enumerate(hexString)]))
 
