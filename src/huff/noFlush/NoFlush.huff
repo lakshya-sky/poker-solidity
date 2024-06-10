@@ -201,836 +201,587 @@
     dup4                // [number, 0x10, div, 0x10, number]
     mod                 // [mod, div, 0x10, number]
 
-    dup2 0x00 eq slot_0 jumpi
-    dup2 0x01 eq slot_1 jumpi
-    dup2 0x02 eq slot_2 jumpi
-    dup2 0x03 eq slot_3 jumpi
-    dup2 0x04 eq slot_4 jumpi
-    dup2 0x05 eq slot_5 jumpi
-    dup2 0x06 eq slot_6 jumpi
-    dup2 0x07 eq slot_7 jumpi
-    dup2 0x08 eq slot_8 jumpi
-    dup2 0x09 eq slot_9 jumpi
-    dup2 0x0a eq slot_10 jumpi
-    dup2 0x0b eq slot_11 jumpi
-    dup2 0x0c eq slot_12 jumpi
-    dup2 0x0d eq slot_13 jumpi
-    dup2 0x0e eq slot_14 jumpi
-    dup2 0x0f eq slot_15 jumpi
-    dup2 0x10 eq slot_16 jumpi
-    dup2 0x11 eq slot_17 jumpi
-    dup2 0x12 eq slot_18 jumpi
-    dup2 0x13 eq slot_19 jumpi
-    dup2 0x14 eq slot_20 jumpi
-    dup2 0x15 eq slot_21 jumpi
-    dup2 0x16 eq slot_22 jumpi
-    dup2 0x17 eq slot_23 jumpi
-    dup2 0x18 eq slot_24 jumpi
-    dup2 0x19 eq slot_25 jumpi
-    dup2 0x1a eq slot_26 jumpi
-    dup2 0x1b eq slot_27 jumpi
-    dup2 0x1c eq slot_28 jumpi
-    dup2 0x1d eq slot_29 jumpi
-    dup2 0x1e eq slot_30 jumpi
-    dup2 0x1f eq slot_31 jumpi
-    dup2 0x20 eq slot_32 jumpi
-    dup2 0x21 eq slot_33 jumpi
-    dup2 0x22 eq slot_34 jumpi
-    dup2 0x23 eq slot_35 jumpi
-    dup2 0x24 eq slot_36 jumpi
-    dup2 0x25 eq slot_37 jumpi
-    dup2 0x26 eq slot_38 jumpi
-    dup2 0x27 eq slot_39 jumpi
-    dup2 0x28 eq slot_40 jumpi
-    dup2 0x29 eq slot_41 jumpi
-    dup2 0x2a eq slot_42 jumpi
-    dup2 0x2b eq slot_43 jumpi
-    dup2 0x2c eq slot_44 jumpi
-    dup2 0x2d eq slot_45 jumpi
-    dup2 0x2e eq slot_46 jumpi
-    dup2 0x2f eq slot_47 jumpi
-    dup2 0x30 eq slot_48 jumpi
-    dup2 0x31 eq slot_49 jumpi
-    dup2 0x32 eq slot_50 jumpi
-    dup2 0x33 eq slot_51 jumpi
-    dup2 0x34 eq slot_52 jumpi
-    dup2 0x35 eq slot_53 jumpi
-    dup2 0x36 eq slot_54 jumpi
-    dup2 0x37 eq slot_55 jumpi
-    dup2 0x38 eq slot_56 jumpi
-    dup2 0x39 eq slot_57 jumpi
-    dup2 0x3a eq slot_58 jumpi
-    dup2 0x3b eq slot_59 jumpi
-    dup2 0x3c eq slot_60 jumpi
-    dup2 0x3d eq slot_61 jumpi
-    dup2 0x3e eq slot_62 jumpi
-    dup2 0x3f eq slot_63 jumpi
-    dup2 0x40 eq slot_64 jumpi
-    dup2 0x41 eq slot_65 jumpi
-    dup2 0x42 eq slot_66 jumpi
-    dup2 0x43 eq slot_67 jumpi
-    dup2 0x44 eq slot_68 jumpi
-    dup2 0x45 eq slot_69 jumpi
-    dup2 0x46 eq slot_70 jumpi
-    dup2 0x47 eq slot_71 jumpi
-    dup2 0x48 eq slot_72 jumpi
-    dup2 0x49 eq slot_73 jumpi
-    dup2 0x4a eq slot_74 jumpi
-    dup2 0x4b eq slot_75 jumpi
-    dup2 0x4c eq slot_76 jumpi
-    dup2 0x4d eq slot_77 jumpi
-    dup2 0x4e eq slot_78 jumpi
-    dup2 0x4f eq slot_79 jumpi
-    dup2 0x50 eq slot_80 jumpi
-    dup2 0x51 eq slot_81 jumpi
-    dup2 0x52 eq slot_82 jumpi
-    dup2 0x53 eq slot_83 jumpi
-    dup2 0x54 eq slot_84 jumpi
-    dup2 0x55 eq slot_85 jumpi
-    dup2 0x56 eq slot_86 jumpi
-    dup2 0x57 eq slot_87 jumpi
-    dup2 0x58 eq slot_88 jumpi
-    dup2 0x59 eq slot_89 jumpi
-    dup2 0x5a eq slot_90 jumpi
-    dup2 0x5b eq slot_91 jumpi
-    dup2 0x5c eq slot_92 jumpi
-    dup2 0x5d eq slot_93 jumpi
-    dup2 0x5e eq slot_94 jumpi
-    dup2 0x5f eq slot_95 jumpi
-    dup2 0x60 eq slot_96 jumpi
-    dup2 0x61 eq slot_97 jumpi
-    dup2 0x62 eq slot_98 jumpi
-    dup2 0x63 eq slot_99 jumpi
-    dup2 0x64 eq slot_100 jumpi
-    dup2 0x65 eq slot_101 jumpi
-    dup2 0x66 eq slot_102 jumpi
-    dup2 0x67 eq slot_103 jumpi
-    dup2 0x68 eq slot_104 jumpi
-    dup2 0x69 eq slot_105 jumpi
-    dup2 0x6a eq slot_106 jumpi
-    dup2 0x6b eq slot_107 jumpi
-    dup2 0x6c eq slot_108 jumpi
-    dup2 0x6d eq slot_109 jumpi
-    dup2 0x6e eq slot_110 jumpi
-    dup2 0x6f eq slot_111 jumpi
-    dup2 0x70 eq slot_112 jumpi
-    dup2 0x71 eq slot_113 jumpi
-    dup2 0x72 eq slot_114 jumpi
-    dup2 0x73 eq slot_115 jumpi
-    dup2 0x74 eq slot_116 jumpi
-    dup2 0x75 eq slot_117 jumpi
-    dup2 0x76 eq slot_118 jumpi
-    dup2 0x77 eq slot_119 jumpi
-    dup2 0x78 eq slot_120 jumpi
-    dup2 0x79 eq slot_121 jumpi
-    dup2 0x7a eq slot_122 jumpi
-    dup2 0x7b eq slot_123 jumpi
-    dup2 0x7c eq slot_124 jumpi
-    dup2 0x7d eq slot_125 jumpi
-    dup2 0x7e eq slot_126 jumpi
-    dup2 0x7f eq slot_127 jumpi
-    dup2 0x80 eq slot_128 jumpi
-    dup2 0x81 eq slot_129 jumpi
-    dup2 0x82 eq slot_130 jumpi
-    dup2 0x83 eq slot_131 jumpi
-    dup2 0x84 eq slot_132 jumpi
-    dup2 0x85 eq slot_133 jumpi
-    dup2 0x86 eq slot_134 jumpi
-    dup2 0x87 eq slot_135 jumpi
-    dup2 0x88 eq slot_136 jumpi
-    dup2 0x89 eq slot_137 jumpi
-    dup2 0x8a eq slot_138 jumpi
-    dup2 0x8b eq slot_139 jumpi
-    dup2 0x8c eq slot_140 jumpi
-    dup2 0x8d eq slot_141 jumpi
-    dup2 0x8e eq slot_142 jumpi
-    dup2 0x8f eq slot_143 jumpi
-    dup2 0x90 eq slot_144 jumpi
-    dup2 0x91 eq slot_145 jumpi
-    dup2 0x92 eq slot_146 jumpi
-    dup2 0x93 eq slot_147 jumpi
-    dup2 0x94 eq slot_148 jumpi
-    dup2 0x95 eq slot_149 jumpi
-    dup2 0x96 eq slot_150 jumpi
-    dup2 0x97 eq slot_151 jumpi
-    dup2 0x98 eq slot_152 jumpi
-    dup2 0x99 eq slot_153 jumpi
-    dup2 0x9a eq slot_154 jumpi
-    dup2 0x9b eq slot_155 jumpi
-    dup2 0x9c eq slot_156 jumpi
-    dup2 0x9d eq slot_157 jumpi
-    dup2 0x9e eq slot_158 jumpi
-    dup2 0x9f eq slot_159 jumpi
-    dup2 0xa0 eq slot_160 jumpi
-    dup2 0xa1 eq slot_161 jumpi
-    dup2 0xa2 eq slot_162 jumpi
-    dup2 0xa3 eq slot_163 jumpi
-    dup2 0xa4 eq slot_164 jumpi
-    dup2 0xa5 eq slot_165 jumpi
-    dup2 0xa6 eq slot_166 jumpi
-    dup2 0xa7 eq slot_167 jumpi
-    dup2 0xa8 eq slot_168 jumpi
-    dup2 0xa9 eq slot_169 jumpi
-    dup2 0xaa eq slot_170 jumpi
-    dup2 0xab eq slot_171 jumpi
-    dup2 0xac eq slot_172 jumpi
-    dup2 0xad eq slot_173 jumpi
-    dup2 0xae eq slot_174 jumpi
-    dup2 0xaf eq slot_175 jumpi
-    dup2 0xb0 eq slot_176 jumpi
-    dup2 0xb1 eq slot_177 jumpi
-    dup2 0xb2 eq slot_178 jumpi
-    dup2 0xb3 eq slot_179 jumpi
-    dup2 0xb4 eq slot_180 jumpi
-    dup2 0xb5 eq slot_181 jumpi
-    dup2 0xb6 eq slot_182 jumpi
-    dup2 0xb7 eq slot_183 jumpi
-    dup2 0xb8 eq slot_184 jumpi
-    dup2 0xb9 eq slot_185 jumpi
-    dup2 0xba eq slot_186 jumpi
-    dup2 0xbb eq slot_187 jumpi
-
-    0x00 dup1 revert
+    //Convert below list of if statements to a loop
+    dup2 0x25 mul 
+    slot_0 add
+    0x04 dup4 div add
+    jump
 
   slot_0:
     [SLOT_0]   
-    mask jump
+    shift jump
   slot_1:
     [SLOT_1]   
-    mask jump
+    shift jump
   slot_2:
     [SLOT_2]
-    mask jump
+    shift jump
   slot_3:
     [SLOT_3]
-    mask jump
+    shift jump
   slot_4:
     [SLOT_4]
-    mask jump
+    shift jump
   slot_5:
     [SLOT_5]
-    mask jump
+    shift jump
   slot_6:
     [SLOT_6]
-    mask jump
+    shift jump
   slot_7:
     [SLOT_7]
-    mask jump
+    shift jump
   slot_8:
     [SLOT_8]
-    mask jump
+    shift jump
   slot_9:
     [SLOT_9]
-    mask jump
+    shift jump
   slot_10:
     [SLOT_10]
-    mask jump
+    shift jump
   slot_11:
     [SLOT_11]
-    mask jump
+    shift jump
   slot_12:
     [SLOT_12]
-    mask jump
+    shift jump
   slot_13:
     [SLOT_13]
-    mask jump
+    shift jump
   slot_14:
     [SLOT_14]
-    mask jump
+    shift jump
   slot_15:
     [SLOT_15]
-    mask jump
+    shift jump
   slot_16:
     [SLOT_16]
-    mask jump
+    shift jump
   slot_17:
     [SLOT_17]
-    mask jump
+    shift jump
   slot_18:
     [SLOT_18]
-    mask jump
+    shift jump
   slot_19:
     [SLOT_19]
-    mask jump
+    shift jump
   slot_20:
     [SLOT_20]
-    mask jump
+    shift jump
   slot_21:
     [SLOT_21]
-    mask jump
+    shift jump
   slot_22:
     [SLOT_22]
-    mask jump
+    shift jump
   slot_23:
     [SLOT_23]
-    mask jump
+    shift jump
   slot_24:
     [SLOT_24]
-    mask jump
+    shift jump
   slot_25:
     [SLOT_25]
-    mask jump
+    shift jump
   slot_26:
     [SLOT_26]
-    mask jump
+    shift jump
   slot_27:
     [SLOT_27]
-    mask jump
+    shift jump
   slot_28:
     [SLOT_28]
-    mask jump
+    shift jump
   slot_29:
     [SLOT_29]
-    mask jump
+    shift jump
   slot_30:
     [SLOT_30]
-    mask jump
+    shift jump
   slot_31:
     [SLOT_31]
-    mask jump
+    shift jump
   slot_32:
     [SLOT_32]
-    mask jump
+    shift jump
   slot_33:
     [SLOT_33]
-    mask jump
+    shift jump
   slot_34:
     [SLOT_34]
-    mask jump
+    shift jump
   slot_35:
     [SLOT_35]
-    mask jump
+    shift jump
   slot_36:
     [SLOT_36]
-    mask jump
+    shift jump
   slot_37:
     [SLOT_37]
-    mask jump
+    shift jump
   slot_38:
     [SLOT_38]
-    mask jump
+    shift jump
   slot_39:
     [SLOT_39]
-    mask jump
+    shift jump
   slot_40:
     [SLOT_40]
-    mask jump
+    shift jump
   slot_41:
     [SLOT_41]
-    mask jump
+    shift jump
   slot_42:
     [SLOT_42]
-    mask jump
+    shift jump
   slot_43:
     [SLOT_43]
-    mask jump
+    shift jump
   slot_44:
     [SLOT_44]
-    mask jump
+    shift jump
   slot_45:
     [SLOT_45]
-    mask jump
+    shift jump
   slot_46:
     [SLOT_46]
-    mask jump
+    shift jump
   slot_47:
     [SLOT_47]
-    mask jump
+    shift jump
   slot_48:
     [SLOT_48]
-    mask jump
+    shift jump
   slot_49:
     [SLOT_49]
-    mask jump
+    shift jump
   slot_50:
     [SLOT_50]
-    mask jump
+    shift jump
   slot_51:
     [SLOT_51]
-    mask jump
+    shift jump
   slot_52:
     [SLOT_52]
-    mask jump
+    shift jump
   slot_53:
     [SLOT_53]
-    mask jump
+    shift jump
   slot_54:
     [SLOT_54]
-    mask jump
+    shift jump
   slot_55:
     [SLOT_55]
-    mask jump
+    shift jump
   slot_56:
     [SLOT_56]
-    mask jump
+    shift jump
   slot_57:
     [SLOT_57]
-    mask jump
+    shift jump
   slot_58:
     [SLOT_58]
-    mask jump
+    shift jump
   slot_59:
     [SLOT_59]
-    mask jump
+    shift jump
   slot_60:
     [SLOT_60]
-    mask jump
+    shift jump
   slot_61:
     [SLOT_61]
-    mask jump
+    shift jump
   slot_62:
     [SLOT_62]
-    mask jump
+    shift jump
   slot_63:
     [SLOT_63]
-    mask jump
+    shift jump
   slot_64:
     [SLOT_64]
-    mask jump
+    shift jump
   slot_65:
     [SLOT_65]
-    mask jump
+    shift jump
   slot_66:
     [SLOT_66]
-    mask jump
+    shift jump
   slot_67:
     [SLOT_67]
-    mask jump
+    shift jump
   slot_68:
     [SLOT_68]
-    mask jump
+    shift jump
   slot_69:
     [SLOT_69]
-    mask jump
+    shift jump
   slot_70:
     [SLOT_70]
-    mask jump
+    shift jump
   slot_71:
     [SLOT_71]
-    mask jump
+    shift jump
   slot_72:
     [SLOT_72]
-    mask jump
+    shift jump
   slot_73:
     [SLOT_73]
-    mask jump
+    shift jump
   slot_74:
     [SLOT_74]
-    mask jump
+    shift jump
   slot_75:
     [SLOT_75]
-    mask jump
+    shift jump
   slot_76:
     [SLOT_76]
-    mask jump
+    shift jump
   slot_77:
     [SLOT_77]
-    mask jump
+    shift jump
   slot_78:
     [SLOT_78]
-    mask jump
+    shift jump
   slot_79:
     [SLOT_79]
-    mask jump
+    shift jump
   slot_80:
     [SLOT_80]
-    mask jump
+    shift jump
   slot_81:
     [SLOT_81]
-    mask jump
+    shift jump
   slot_82:
     [SLOT_82]
-    mask jump
+    shift jump
   slot_83:
     [SLOT_83]
-    mask jump
+    shift jump
   slot_84:
     [SLOT_84]
-    mask jump
+    shift jump
   slot_85:
     [SLOT_85]
-    mask jump
+    shift jump
   slot_86:
     [SLOT_86]
-    mask jump
+    shift jump
   slot_87:
     [SLOT_87]
-    mask jump
+    shift jump
   slot_88:
     [SLOT_88]
-    mask jump
+    shift jump
   slot_89:
     [SLOT_89]
-    mask jump
+    shift jump
   slot_90:
     [SLOT_90]
-    mask jump
+    shift jump
   slot_91:
     [SLOT_91]
-    mask jump
+    shift jump
   slot_92:
     [SLOT_92]
-    mask jump
+    shift jump
   slot_93:
     [SLOT_93]
-    mask jump
+    shift jump
   slot_94:
     [SLOT_94]
-    mask jump
+    shift jump
   slot_95:
     [SLOT_95]
-    mask jump
+    shift jump
   slot_96:
     [SLOT_96]
-    mask jump
+    shift jump
   slot_97:
     [SLOT_97]
-    mask jump
+    shift jump
   slot_98:
     [SLOT_98]
-    mask jump
+    shift jump
   slot_99:
     [SLOT_99]
-    mask jump
+    shift jump
   slot_100:
     [SLOT_100]
-    mask jump
+    shift jump
   slot_101:
     [SLOT_101]
-    mask jump
+    shift jump
   slot_102:
     [SLOT_102]
-    mask jump
+    shift jump
   slot_103:
     [SLOT_103]
-    mask jump
+    shift jump
   slot_104:
     [SLOT_104]
-    mask jump
+    shift jump
   slot_105:
     [SLOT_105]
-    mask jump
+    shift jump
   slot_106:
     [SLOT_106]
-    mask jump
+    shift jump
   slot_107:
     [SLOT_107]
-    mask jump
+    shift jump
   slot_108:
     [SLOT_108]
-    mask jump
+    shift jump
   slot_109:
     [SLOT_109]
-    mask jump
+    shift jump
   slot_110:
     [SLOT_110]
-    mask jump
+    shift jump
   slot_111:
     [SLOT_111]
-    mask jump
+    shift jump
   slot_112:
     [SLOT_112]
-    mask jump
+    shift jump
   slot_113:
     [SLOT_113]
-    mask jump
+    shift jump
   slot_114:
     [SLOT_114]
-    mask jump
+    shift jump
   slot_115:
     [SLOT_115]
-    mask jump
+    shift jump
   slot_116:
     [SLOT_116]
-    mask jump
+    shift jump
   slot_117:
     [SLOT_117]
-    mask jump
+    shift jump
   slot_118:
     [SLOT_118]
-    mask jump
+    shift jump
   slot_119:
     [SLOT_119]
-    mask jump
+    shift jump
   slot_120:
     [SLOT_120]
-    mask jump
+    shift jump
   slot_121:
     [SLOT_121]
-    mask jump
+    shift jump
   slot_122:
     [SLOT_122]
-    mask jump
+    shift jump
   slot_123:
     [SLOT_123]
-    mask jump
+    shift jump
   slot_124:
     [SLOT_124]
-    mask jump
+    shift jump
   slot_125:
     [SLOT_125]
-    mask jump
+    shift jump
   slot_126:
     [SLOT_126]
-    mask jump
+    shift jump
   slot_127:
     [SLOT_127]
-    mask jump
+    shift jump
   slot_128:
     [SLOT_128]
-    mask jump
+    shift jump
   slot_129:
     [SLOT_129]
-    mask jump
+    shift jump
   slot_130:
     [SLOT_130]
-    mask jump
+    shift jump
   slot_131:
     [SLOT_131]
-    mask jump
+    shift jump
   slot_132:
     [SLOT_132]
-    mask jump
+    shift jump
   slot_133:
     [SLOT_133]
-    mask jump
+    shift jump
   slot_134:
     [SLOT_134]
-    mask jump
+    shift jump
   slot_135:
     [SLOT_135]
-    mask jump
+    shift jump
   slot_136:
     [SLOT_136]
-    mask jump
+    shift jump
   slot_137:
     [SLOT_137]
-    mask jump
+    shift jump
   slot_138:
     [SLOT_138]
-    mask jump
+    shift jump
   slot_139:
     [SLOT_139]
-    mask jump
+    shift jump
   slot_140:
     [SLOT_140]
-    mask jump
+    shift jump
   slot_141:
     [SLOT_141]
-    mask jump
+    shift jump
   slot_142:
     [SLOT_142]
-    mask jump
+    shift jump
   slot_143:
     [SLOT_143]
-    mask jump
+    shift jump
   slot_144:
     [SLOT_144]
-    mask jump
+    shift jump
   slot_145:
     [SLOT_145]
-    mask jump
+    shift jump
   slot_146:
     [SLOT_146]
-    mask jump
+    shift jump
   slot_147:
     [SLOT_147]
-    mask jump
+    shift jump
   slot_148:
     [SLOT_148]
-    mask jump
+    shift jump
   slot_149:
     [SLOT_149]
-    mask jump
+    shift jump
   slot_150:
     [SLOT_150]
-    mask jump
+    shift jump
   slot_151:
     [SLOT_151]
-    mask jump
+    shift jump
   slot_152:
     [SLOT_152]
-    mask jump
+    shift jump
   slot_153:
     [SLOT_153]
-    mask jump
+    shift jump
   slot_154:
     [SLOT_154]
-    mask jump
+    shift jump
   slot_155:
     [SLOT_155]
-    mask jump
+    shift jump
   slot_156:
     [SLOT_156]
-    mask jump
+    shift jump
   slot_157:
     [SLOT_157]
-    mask jump
+    shift jump
   slot_158:
     [SLOT_158]
-    mask jump
+    shift jump
   slot_159:
     [SLOT_159]
-    mask jump
+    shift jump
   slot_160:
     [SLOT_160]
-    mask jump
+    shift jump
   slot_161:
     [SLOT_161]
-    mask jump
+    shift jump
   slot_162:
     [SLOT_162]
-    mask jump
+    shift jump
   slot_163:
     [SLOT_163]
-    mask jump
+    shift jump
   slot_164:
     [SLOT_164]
-    mask jump
+    shift jump
   slot_165:
     [SLOT_165]
-    mask jump
+    shift jump
   slot_166:
     [SLOT_166]
-    mask jump
+    shift jump
   slot_167:
     [SLOT_167]
-    mask jump
+    shift jump
   slot_168:
     [SLOT_168]
-    mask jump
+    shift jump
   slot_169:
     [SLOT_169]
-    mask jump
+    shift jump
   slot_170:
     [SLOT_170]
-    mask jump
+    shift jump
   slot_171:
     [SLOT_171]
-    mask jump
+    shift jump
   slot_172:
     [SLOT_172]
-    mask jump
+    shift jump
   slot_173:
     [SLOT_173]
-    mask jump
+    shift jump
   slot_174:
     [SLOT_174]
-    mask jump
+    shift jump
   slot_175:
     [SLOT_175]
-    mask jump
+    shift jump
   slot_176:
     [SLOT_176]
-    mask jump
+    shift jump
   slot_177:
     [SLOT_177]
-    mask jump
+    shift jump
   slot_178:
     [SLOT_178]
-    mask jump
+    shift jump
   slot_179:
     [SLOT_179]
-    mask jump
+    shift jump
   slot_180:
     [SLOT_180]
-    mask jump
+    shift jump
   slot_181:
     [SLOT_181]
-    mask jump
+    shift jump
   slot_182:
     [SLOT_182]
-    mask jump
+    shift jump
   slot_183:
     [SLOT_183]
-    mask jump
+    shift jump
   slot_184:
     [SLOT_184]
-    mask jump
+    shift jump
   slot_185:
     [SLOT_185]
-    mask jump
+    shift jump
   slot_186:
     [SLOT_186]
-    mask jump
+    shift jump
   slot_187:
     [SLOT_187]
-    mask jump
-
-  mask:
-    dup2 0x00 eq mask_0 jumpi
-    dup2 0x01 eq mask_1 jumpi
-    dup2 0x02 eq mask_2 jumpi
-    dup2 0x03 eq mask_3 jumpi
-    dup2 0x04 eq mask_4 jumpi
-    dup2 0x05 eq mask_5 jumpi
-    dup2 0x06 eq mask_6 jumpi
-    dup2 0x07 eq mask_7 jumpi
-    dup2 0x08 eq mask_8 jumpi
-    dup2 0x09 eq mask_9 jumpi
-    dup2 0x0a eq mask_10 jumpi
-    dup2 0x0b eq mask_11 jumpi
-    dup2 0x0c eq mask_12 jumpi
-    dup2 0x0d eq mask_13 jumpi
-    dup2 0x0e eq mask_14 jumpi
-    dup2 0x0f eq mask_15 jumpi
-
-    0x00 dup1 revert 
-
-  mask_0:
-    0xffff000000000000000000000000000000000000000000000000000000000000
-    shift jump
-  mask_1:
-    0x0000ffff00000000000000000000000000000000000000000000000000000000
-    shift jump
-  mask_2:
-    0x00000000ffff0000000000000000000000000000000000000000000000000000
-    shift jump
-  mask_3:
-    0x000000000000ffff000000000000000000000000000000000000000000000000
-    shift jump
-  mask_4:
-    0x0000000000000000ffff00000000000000000000000000000000000000000000
-    shift jump
-  mask_5:
-    0x00000000000000000000ffff0000000000000000000000000000000000000000
-    shift jump
-  mask_6:
-    0x000000000000000000000000ffff000000000000000000000000000000000000
-    shift jump
-  mask_7:
-    0x0000000000000000000000000000ffff00000000000000000000000000000000
-    shift jump
-  mask_8:
-    0x00000000000000000000000000000000ffff0000000000000000000000000000
-    shift jump
-  mask_9:
-    0x000000000000000000000000000000000000ffff000000000000000000000000
-    shift jump
-  mask_10:
-    0x0000000000000000000000000000000000000000ffff00000000000000000000
-    shift jump
-  mask_11:
-    0x00000000000000000000000000000000000000000000ffff0000000000000000
-    shift jump
-  mask_12:
-    0x000000000000000000000000000000000000000000000000ffff000000000000
-    shift jump
-  mask_13:
-    0x0000000000000000000000000000000000000000000000000000ffff00000000
-    shift jump
-  mask_14:
-    0x00000000000000000000000000000000000000000000000000000000ffff0000
-    shift jump
-  mask_15:
-    0x000000000000000000000000000000000000000000000000000000000000ffff
     shift jump
 
   shift:
-    and
-    dup2 0x0f sub 
-    0x10 mul
-    shr 
+    dup1
+    dup3 0x02 mul 
+    byte
+    dup2 
+    dup4 0x02 mul 0x01 add
+    byte
+    swap1
+    0x08 shl
+    add
     0x00 mstore
     0x20 mstore
 
