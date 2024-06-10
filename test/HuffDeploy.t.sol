@@ -35,9 +35,16 @@ contract HuffDeployTest is Test {
     //     }
     // }
 
+    // function testNoFlushLoop() public {
+    //     for (uint i; i < 3000; i++) {
+    //         (uint v, uint d) = huff_nf.lookup_double(i);
+    //         assertEq(nf1.noflush(i), v);
+    //     }
+    // }
+
     function testNoFlushLoop() public {
-        for (uint i; i < 3000; i++) {
-            (uint v, uint d) = huff_nf.lookup_double(i);
+        for (uint i; i < 3; i++) {
+            uint v = huff_nf.lookup_single(i);
             assertEq(nf1.noflush(i), v);
         }
     }

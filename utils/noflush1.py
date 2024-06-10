@@ -385,10 +385,12 @@ for i in range(0, len(arr), step):
         hexArr.append("%0.4X"%n)
     hexWords = "".join(hexArr)
     hexWords +=  '0' * (64-len(hexWords))
-    hexString.append("0x"+hexWords)
+    # hexString.append("0x"+hexWords)
+    hexString.append(hexWords)
 
-def slot(i,x): 
-    return "#define constant SLOT_%d = %s"%(i,x)
+# def slot(i,x): 
+#     return "#define constant SLOT_%d = %s"%(i,x)
 
-print("\n".join([slot(i,x) for (i,x) in enumerate(hexString)]))
+# print("\n".join([slot(i,x) for (i,x) in enumerate(hexString)]))
+print("0x"+"".join(hexString))
 
