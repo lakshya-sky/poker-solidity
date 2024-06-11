@@ -6153,21 +6153,29 @@ arr = [ # 49205
   162,  163,  164,  165,  166
 ]
 
-hexString = []
 step = 16
-for i in range(0, len(arr), step):
-    subArr = arr[i:i+step]
-    hexArr = []
-    for n in subArr:
-        hexArr.append("%0.4X"%n)
-    hexWords = "".join(hexArr)
-    hexWords +=  '0' * (64-len(hexWords))
-    # hexString.append("0x"+hexWords)
-    hexString.append(hexWords)
+
+def chunk(arr, step):
+    hexString = []
+    for i in range(0, len(arr), step):
+        subArr = arr[i:i+step]
+        hexArr = []
+        for n in subArr:
+            hexArr.append("%0.4X"%n)
+        hexWords = "".join(hexArr)
+        hexWords +=  '0' * (64-len(hexWords))
+        # hexString.append("0x"+hexWords)
+        hexString.append(hexWords)
+    return hexString
 
 # def slot(i,x): 
 #     return "#define constant SLOT_%d = %s"%(i,x)
 
 # print("\n".join([slot(i,x) for (i,x) in enumerate(hexString)]))
-print("0x"+"".join(hexString))
 
+chunk_size = 12000 
+for i in range(0, len(arr), chunk_size):
+    # print("Current Len", i, i+9000)
+    chunk_ = chunk(arr[i:i+chunk_size], step)
+    print_n = "\n#define table CODE_TABLE {\n\t%s\n}\n"%("0x"+"".join(chunk_))
+    print(print_n)

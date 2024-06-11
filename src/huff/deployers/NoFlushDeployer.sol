@@ -5,7 +5,7 @@ import {HuffDeployer} from "foundry-huff/HuffDeployer.sol";
 import {console} from "forge-std/console.sol";
 
 contract NoFlushDeployer {
-    function deploy() public returns (address) {
-        return HuffDeployer.deploy("huff/noFlush/NoFlush");
+    function deploy(string memory filename) public returns (address) {
+        return HuffDeployer.deploy(filename);
     }
 }
