@@ -3,56 +3,47 @@
 pragma solidity ^0.8.26;
 
 import {Test, console} from "forge-std/Test.sol";
-// import {NoFlush1Deployer} from "../src/huff/deployers/NoFlush1Deployer.sol";
+import {HuffDeployer} from "foundry-huff/HuffDeployer.sol";
 import {NoFlushDeployer} from "../src/huff/deployers/NoFlushDeployer.sol";
 
 import "../src/Evaluator7.sol";
-
-interface INoFlush {
-    function lookup_single(uint256) external returns (uint256);
-
-    function lookup_double(uint256) external returns (uint256, uint256);
-}
+import "../src/huff/ILookup.sol";
 
 contract HuffDeployTest is Test {
-    INoFlush huff_nf1;
-    INoFlush huff_nf2;
-    INoFlush huff_nf3;
-    INoFlush huff_nf4;
-    INoFlush huff_nf5;
+    ILookup huff_nf;
+    ILookup huff_nf1;
+    ILookup huff_nf2;
+    ILookup huff_nf3;
+    ILookup huff_nf4;
+    ILookup huff_nf5;
+    ILookup huff_f;
+
     uint th = 3000;
 
     function setUp() public {
-        NoFlushDeployer noFlushdeployer = new NoFlushDeployer();
-        huff_nf1 = INoFlush(noFlushdeployer.deploy("huff/noFlush/NoFlush1"));
-        huff_nf2 = INoFlush(noFlushdeployer.deploy("huff/noFlush/NoFlush2"));
-        huff_nf3 = INoFlush(noFlushdeployer.deploy("huff/noFlush/NoFlush3"));
-        huff_nf4 = INoFlush(noFlushdeployer.deploy("huff/noFlush/NoFlush4"));
-        huff_nf5 = INoFlush(noFlushdeployer.deploy("huff/noFlush/NoFlush5"));
+        huff_nf = ILookup(HuffDeployer.deploy("huff/NoFlush"));
+        huff_nf1 = ILookup(HuffDeployer.deploy("huff/NoFlush1"));
+        huff_nf2 = ILookup(HuffDeployer.deploy("huff/NoFlush2"));
+        huff_nf3 = ILookup(HuffDeployer.deploy("huff/NoFlush3"));
+        huff_nf4 = ILookup(HuffDeployer.deploy("huff/NoFlush4"));
+        huff_nf5 = ILookup(HuffDeployer.deploy("huff/NoFlush5"));
+        huff_f = ILookup(HuffDeployer.deploy("huff/Flush"));
     }
 
-    // function testHuffDeploy() public {
-    // NoFlush1Deployer deployer = new NoFlush1Deployer();
-    // address noflush_1_addr = deployer.deploy();
-    // INoFlush huff_no_flush_1;
-    // huff_no_flush_1 = INoFlush(noflush_1_addr);
-    //     for (uint i; i < 3000; i++) {
-    //         assertEq(nf1.noflush(i), huff_no_flush_1.lookup_single(i));
-    //     }
-    // }
-
-    // function testNoFlushLoop() public {
-    //     for (uint i; i < 3000; i++) {
-    //         (uint v, uint d) = huff_nf.lookup_double(i);
-    //         assertEq(nf1.noflush(i), v);
-    //     }
-    // }
+    function testShortFlush() public {
+        NoFlush1 nf1 = new NoFlush1();
+        uint start = 0;
+        for (uint i; i < th; i++) {
+            uint v = huff_nf.lookup(i + start);
+            assertEq(nf1.noflush(i), v);
+        }
+    }
 
     function testNoFlushLoop1() public {
         NoFlush1 nf1 = new NoFlush1();
         uint start = 0;
         for (uint i; i < th; i++) {
-            uint v = huff_nf1.lookup_single(i + start);
+            uint v = huff_nf1.lookup(i + start);
             assertEq(nf1.noflush(i), v);
         }
     }
@@ -61,7 +52,7 @@ contract HuffDeployTest is Test {
         NoFlush2 nf2 = new NoFlush2();
         uint start = 3000;
         for (uint i; i < th; i++) {
-            uint v = huff_nf1.lookup_single(i + start);
+            uint v = huff_nf1.lookup(i + start);
             assertEq(nf2.noflush(i), v);
         }
     }
@@ -70,7 +61,7 @@ contract HuffDeployTest is Test {
         NoFlush3 nf3 = new NoFlush3();
         uint start = 6000;
         for (uint i; i < th; i++) {
-            uint v = huff_nf1.lookup_single(i + start);
+            uint v = huff_nf1.lookup(i + start);
             assertEq(nf3.noflush(i), v);
         }
     }
@@ -79,7 +70,7 @@ contract HuffDeployTest is Test {
         NoFlush4 nf4 = new NoFlush4();
         uint start = 9000;
         for (uint i; i < th; i++) {
-            uint v = huff_nf1.lookup_single(i + start);
+            uint v = huff_nf1.lookup(i + start);
             assertEq(nf4.noflush(i), v);
         }
     }
@@ -88,7 +79,7 @@ contract HuffDeployTest is Test {
         NoFlush5 nf5 = new NoFlush5();
         uint start = 0;
         for (uint i; i < th; i++) {
-            uint v = huff_nf2.lookup_single(i + start);
+            uint v = huff_nf2.lookup(i + start);
             assertEq(nf5.noflush(i), v);
         }
     }
@@ -97,7 +88,7 @@ contract HuffDeployTest is Test {
         NoFlush6 nf = new NoFlush6();
         uint start = 3000;
         for (uint i; i < th; i++) {
-            uint v = huff_nf2.lookup_single(i + start);
+            uint v = huff_nf2.lookup(i + start);
             assertEq(nf.noflush(i), v);
         }
     }
@@ -106,7 +97,7 @@ contract HuffDeployTest is Test {
         NoFlush7 nf = new NoFlush7();
         uint start = 6000;
         for (uint i; i < th; i++) {
-            uint v = huff_nf2.lookup_single(i + start);
+            uint v = huff_nf2.lookup(i + start);
             assertEq(nf.noflush(i), v);
         }
     }
@@ -115,7 +106,7 @@ contract HuffDeployTest is Test {
         NoFlush8 nf = new NoFlush8();
         uint start = 9000;
         for (uint i; i < th; i++) {
-            uint v = huff_nf2.lookup_single(i + start);
+            uint v = huff_nf2.lookup(i + start);
             assertEq(nf.noflush(i), v);
         }
     }
@@ -124,7 +115,7 @@ contract HuffDeployTest is Test {
         NoFlush9 nf = new NoFlush9();
         uint start = 0;
         for (uint i; i < th; i++) {
-            uint v = huff_nf3.lookup_single(i + start);
+            uint v = huff_nf3.lookup(i + start);
             assertEq(nf.noflush(i), v);
         }
     }
@@ -133,7 +124,7 @@ contract HuffDeployTest is Test {
         NoFlush10 nf = new NoFlush10();
         uint start = 3000;
         for (uint i; i < th; i++) {
-            uint v = huff_nf3.lookup_single(i + start);
+            uint v = huff_nf3.lookup(i + start);
             assertEq(nf.noflush(i), v);
         }
     }
@@ -142,7 +133,7 @@ contract HuffDeployTest is Test {
         NoFlush11 nf = new NoFlush11();
         uint start = 6000;
         for (uint i; i < th; i++) {
-            uint v = huff_nf3.lookup_single(i + start);
+            uint v = huff_nf3.lookup(i + start);
             assertEq(nf.noflush(i), v);
         }
     }
@@ -151,7 +142,7 @@ contract HuffDeployTest is Test {
         NoFlush12 nf = new NoFlush12();
         uint start = 9000;
         for (uint i; i < th; i++) {
-            uint v = huff_nf3.lookup_single(i + start);
+            uint v = huff_nf3.lookup(i + start);
             assertEq(nf.noflush(i), v);
         }
     }
@@ -160,7 +151,7 @@ contract HuffDeployTest is Test {
         NoFlush13 nf = new NoFlush13();
         uint start = 0;
         for (uint i; i < th; i++) {
-            uint v = huff_nf4.lookup_single(i + start);
+            uint v = huff_nf4.lookup(i + start);
             assertEq(nf.noflush(i), v);
         }
     }
@@ -169,7 +160,7 @@ contract HuffDeployTest is Test {
         NoFlush14 nf = new NoFlush14();
         uint start = 3000;
         for (uint i; i < th; i++) {
-            uint v = huff_nf4.lookup_single(i + start);
+            uint v = huff_nf4.lookup(i + start);
             assertEq(nf.noflush(i), v);
         }
     }
@@ -178,7 +169,7 @@ contract HuffDeployTest is Test {
         NoFlush15 nf = new NoFlush15();
         uint start = 6000;
         for (uint i; i < th; i++) {
-            uint v = huff_nf4.lookup_single(i + start);
+            uint v = huff_nf4.lookup(i + start);
             assertEq(nf.noflush(i), v);
         }
     }
@@ -187,7 +178,7 @@ contract HuffDeployTest is Test {
         NoFlush16 nf = new NoFlush16();
         uint start = 9000;
         for (uint i; i < th; i++) {
-            uint v = huff_nf4.lookup_single(i + start);
+            uint v = huff_nf4.lookup(i + start);
             assertEq(nf.noflush(i), v);
         }
     }
@@ -196,8 +187,35 @@ contract HuffDeployTest is Test {
         NoFlush17 nf = new NoFlush17();
         uint start = 0;
         for (uint i; i < 1205; i++) {
-            uint v = huff_nf5.lookup_single(i + start);
+            uint v = huff_nf5.lookup(i + start);
             assertEq(nf.noflush(i), v);
+        }
+    }
+
+    function testFlush1() public {
+        Flush1 f = new Flush1();
+        uint start = 0;
+        for (uint i; i < th; i++) {
+            uint v = huff_f.lookup(i + start);
+            assertEq(f.flush(i), v);
+        }
+    }
+
+    function testFlush2() public {
+        Flush2 f = new Flush2();
+        uint start = 3000;
+        for (uint i; i < th; i++) {
+            uint v = huff_f.lookup(i + start);
+            assertEq(f.flush(i), v);
+        }
+    }
+
+    function testFlush3() public {
+        Flush3 f = new Flush3();
+        uint start = 6000;
+        for (uint i; i < 2192; i++) {
+            uint v = huff_f.lookup(i + start);
+            assertEq(f.flush(i), v);
         }
     }
 }

@@ -6,13 +6,6 @@
 }
 
 #define macro LOOKUP() = takes (0) returns (0) {
-    __tablesize(CODE_TABLE) //[size]
-    dup1                    //[size, size]
-    __tablestart(CODE_TABLE)//[start,size, size]
-    0x60                    //[0, start,size, size]
-    codecopy
-    0x60 add                //[memory_free_offset]
-
     0x04 calldataload   // [number]
     0x10                // [0x10, number]
     dup1                // [0x10, 0x10, number]
@@ -21,10 +14,15 @@
     swap2               // [number, 0x10, div]
     mod                 // [mod, div]
 
+    0x20                // [32, mod, div]
+    dup3 0x20 mul       // [div*32 , 32, mod, div]
+    __tablestart(CODE_TABLE)    
+    add                         //[start+div*32, 32, mod, div]
+    0x60                        //[0x60, start, 32 , mod, div]
+    codecopy
+
     //access word from code_table
-    swap1 0x20 mul
-    0x60 add
-    mload               //[word, mod]
+    0x60 mload               //[word, mod, div]
 
     swap1 0x02 mul      //[idx, word]
     dup1                //[idx, idx, word]
